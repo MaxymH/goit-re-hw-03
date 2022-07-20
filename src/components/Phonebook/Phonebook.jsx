@@ -20,13 +20,15 @@ class Phonebook extends Component {
     };
 
         componentDidMount() {
-        const contacts = localStorage.getItem('contacts')
+            const contacts = localStorage.getItem('contacts')
+            if (!contacts || contacts === '') {
+                return
+            }
         const parseContacts = JSON.parse(contacts)
-        if (contacts) {
             this.setState({
             contacts: parseContacts
         })
-        }
+        
     }
 
     componentDidUpdate(prevProps, prevState) {
