@@ -19,9 +19,10 @@ class Phonebook extends Component {
     filter: '',
     };
 
+
         componentDidMount() {
             const contacts = localStorage.getItem('contacts')
-            if (!contacts || contacts === '') {
+            if (!contacts || contacts.length === 0) {
                 return
             }
         const parseContacts = JSON.parse(contacts)
