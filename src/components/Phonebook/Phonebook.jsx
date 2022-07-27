@@ -21,15 +21,12 @@ class Phonebook extends Component {
 
 
         componentDidMount() {
-            const contacts = localStorage.getItem('contacts')
-            if (!contacts || contacts.length === 0) {
-                return
-            }
-        const parseContacts = JSON.parse(contacts)
-            this.setState({
+            const contacts = localStorage.getItem('contacts');
+            const parseContacts = JSON.parse(contacts);
+            if (parseContacts ?.length) {
+                this.setState({
             contacts: parseContacts
-        })
-        
+        })        
     }
 
     componentDidUpdate(prevProps, prevState) {
